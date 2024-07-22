@@ -23,8 +23,8 @@ class CoreManager
 				exec("cd /home/oacis/rrs-oacis; git remote set-url --push origin git@github.com:rrs-oacis/rrs-oacis.git");
 				exec("timeout 30 git fetch", $exec_out, $exec_ret);
 
-				exec("cd /home/oacis/rrs-oacis/rrsenv; git remote set-url origin https://github.com/tkmnet/rrsenv.git");
-				exec("cd /home/oacis/rrs-oacis/rrsenv; git remote set-url --push origin git@github.com:tkmnet/rrsenv.git");
+				exec("cd /home/oacis/rrs-oacis/rrsenv; git remote set-url origin https://github.com/harrki/rrsenv.git");
+				exec("cd /home/oacis/rrs-oacis/rrsenv; git remote set-url --push origin git@github.com:harrki/rrsenv.git");
 			}
 
 			if ($manifestJson = file_get_contents('https://raw.githubusercontent.com/rrs-oacis/rrs-oacis/master/manifest.json')) {
