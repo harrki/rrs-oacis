@@ -1,15 +1,20 @@
 FROM oacis/oacis:latest
 
-ENV DEBIAN_FRONTEND noninteractive
-RUN echo deb http://packages.dotdeb.org stretch all \
-    >> /etc/apt/sources.list
-RUN curl --fail --silent --show-error \
-    --location https://www.dotdeb.org/dotdeb.gpg | apt-key add -
+ENV DEBIAN_FRONTEND=noninteractive
+# RUN echo deb http://packages.dotdeb.org stretch all \
+#     >> /etc/apt/sources.list
+# RUN curl --fail --silent --show-error \
+#     --location https://www.dotdeb.org/dotdeb.gpg | apt-key add -
 
-RUN if [ -e "/etc/apt/sources.list.d/jessie-backports.list" ]; then \
-    echo "deb [check-valid-until=no] \
-    http://archive.debian.org/debian jessie-backports main" \
-    > /etc/apt/sources.list.d/jessie-backports.list ; fi
+# RUN if [ -e "/etc/apt/sources.list.d/jessie-backports.list" ]; then \
+#     echo "deb [check-valid-until=no] \
+#     http://archive.debian.org/debian jessie-backports main" \
+#     > /etc/apt/sources.list.d/jessie-backports.list ; fi
+
+RUN echo "deb http://archive.debian.org/debian/ stretch main" \
+    > /etc/apt/sources.list
+RUN echo "deb http://archive.debian.org/debian-security stretch/updates main" \
+    >> /etc/apt/sources.list
 
 RUN apt-get update && \
     apt-get install --assume-yes \
