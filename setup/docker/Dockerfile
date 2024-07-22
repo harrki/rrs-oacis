@@ -35,7 +35,7 @@ COPY supplement/rrsoacis_fpm_php.ini /etc/php/7.0/fpm/conf.d/
 # rrs-oacis/rrs-oacis
 USER oacis
 WORKDIR /home/oacis
-RUN git clone https://github.com/rrs-oacis/rrs-oacis.git
+RUN git clone https://github.com/harrki/rrs-oacis.git
 COPY --chown=oacis:oacis supplement/server.sh rrs-oacis/
 COPY --chown=oacis:oacis supplement/update-rrsoacis /usr/local/bin/
 RUN chmod u+x rrs-oacis/setup/setup.sh
