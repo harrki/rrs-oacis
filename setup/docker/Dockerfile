@@ -36,7 +36,7 @@ COPY supplement/rrsoacis_fpm_php.ini /etc/php/7.0/fpm/conf.d/
 USER oacis
 WORKDIR /home/oacis
 RUN git clone https://github.com/harrki/rrs-oacis.git
-RUN git switch support_new_rcrs-server
+RUN git checkout support_new_rcrs-server
 COPY --chown=oacis:oacis supplement/server.sh rrs-oacis/
 COPY --chown=oacis:oacis supplement/update-rrsoacis /usr/local/bin/
 RUN chmod u+x rrs-oacis/setup/setup.sh
@@ -47,7 +47,7 @@ RUN ./rrs-oacis/setup/setup.sh
 # tkmnet/rrsenv
 WORKDIR /home/oacis/rrs-oacis
 RUN git clone https://github.com/harrki/rrsenv.git
-RUN git switch support_new_rcrs-server
+RUN git checkout support_new_rcrs-server
 COPY --chown=oacis:oacis supplement/alt_rrsenv_init.sh rrsenv/
 RUN chmod u+x rrsenv/alt_rrsenv_init.sh
 RUN ./rrsenv/alt_rrsenv_init.sh
